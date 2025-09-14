@@ -1,6 +1,7 @@
 # AutoDocDB Dataset
 
-This repository contains the dataset used to train and evaluate the AutoDocDB framework, as presented in the paper *"AutoDocDB: A Novel Framework for Automated Source Code Summarization in Database Management Systems"*.
+This repository contains the dataset used to train and evaluate the AutoDocDB framework, as presented in the paper *"AutoDocDB: A Novel Framework for Automated Source Code Summarization in Database Management
+Systems via Advanced Text Extraction and CodeT5+ Integration"*.
 
 ## Dataset Description
 
