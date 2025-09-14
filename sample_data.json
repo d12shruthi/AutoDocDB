@@ -1,0 +1,36 @@
+[
+  {
+    "id": "textbook_connolly_8.2",
+    "source": "Textbook: Connolly and Begg (6th Ed.)",
+    "source_chapter": "8",
+    "code_snippet": "// Update product price after a 10% discount\nString sql = \"UPDATE products \" +\n           \"SET price = price * 0.9 \" +\n           \"WHERE category_id = ? AND discontinued = 0\";\nPreparedStatement pstmt = conn.prepareStatement(sql);\npstmt.setInt(1, categoryId);\nint rowsUpdated = pstmt.executeUpdate();",
+    "host_language": "Java",
+    "dbms": "SQL-92",
+    "cleaned_text": "Update product price after a 10 percent discount UPDATE products SET price = price multiply 0.9 WHERE category_id equals parameter AND discontinued equals 0",
+    "summary": "Applies a 10% discount to all active products in a specified category.",
+    "operation_types": ["UPDATE"],
+    "complexity": "Low"
+  },
+  {
+    "id": "github_python_crud_42",
+    "source": "GitHub: flask-dashboard-app",
+    "code_snippet": "def get_employee_sales(employee_id, start_date, end_date):\n    \"\"\"Fetches total sales for an employee within a date range.\"\"\"\n    query = \"\"\"\n        SELECT e.name, SUM(s.amount) AS total_sales\n        FROM employees e\n        JOIN sales s ON e.id = s.employee_id\n        WHERE e.id = %s \n          AND s.sale_date BETWEEN %s AND %s\n        GROUP BY e.name\n    \"\"\"\n    with conn.cursor() as cur:\n        cur.execute(query, (employee_id, start_date, end_date))\n        result = cur.fetchone()\n    return result",
+    "host_language": "Python",
+    "dbms": "PostgreSQL",
+    "cleaned_text": "Fetches total sales for an employee within a date range SELECT employees name SUM sales amount AS total_sales FROM employees JOIN sales ON employees id equals sales employee_id WHERE employees id equals parameter AND sales sale_date BETWEEN parameter AND parameter GROUP BY employees name",
+    "summary": "Aggregates total sales for a specific employee between two dates by joining employees and sales tables.",
+    "operation_types": ["SELECT", "JOIN", "AGGREGATE_SUM", "GROUP_BY"],
+    "complexity": "Medium"
+  },
+  {
+    "id": "docs_postgresql_window_7",
+    "source": "PostgreSQL.org Tutorial",
+    "code_snippet": "-- Rank customers by total order value in each region\nSELECT \n    customer_id,\n    region,\n    SUM(order_value) AS total_orders,\n    RANK() OVER (PARTITION BY region ORDER BY SUM(order_value) DESC)\nFROM orders\nGROUP BY customer_id, region;",
+    "host_language": "SQL",
+    "dbms": "PostgreSQL",
+    "cleaned_text": "Rank customers by total order value in each region SELECT customer_id region SUM order_value AS total_orders RANK function OVER PARTITION BY region ORDER BY SUM order_value DESC FROM orders GROUP BY customer_id region",
+    "summary": "Ranks customers within each region based on their total order value using a window function.",
+    "operation_types": ["SELECT", "AGGREGATE_SUM", "GROUP_BY", "WINDOW_FUNCTION_RANK"],
+    "complexity": "High"
+  }
+]
